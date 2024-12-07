@@ -1,0 +1,63 @@
+﻿<Window x:Class="RName_ReMake.Views.SettingWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RName_ReMake.Views"
+        xmlns:views="clr-namespace:RName_ReMake.Views"
+        xmlns:models="clr-namespace:RName_ReMake.Models"
+        mc:Ignorable="d"
+        Title="SettingWindows" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <TabControl >
+            <TabItem HorizontalAlignment="Center" Height="30" Header="command" VerticalAlignment="Center" Width="200">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>                  
+                </ScrollViewer>
+
+            </TabItem>
+            <TabItem HorizontalAlignment="Center" Header="Names" Height="30" VerticalAlignment="Center" Width="200">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <ListBox x:Name="nameLstBox" ItemsSource="{Binding NameInfos}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button x:Name="DeleteButton" Content="Delete" Grid.Column="0" HorizontalAlignment="Right" Width="70"/>
+                                        <CheckBox IsChecked="{Binding Path=IsEnabled}" Content="{Binding Path=Name}" Grid.Column="1"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
